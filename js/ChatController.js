@@ -30,12 +30,7 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
                     "created": "Fri, 15 Jul 2017 09:56:37 GMT",
                     "createdBy": 12
                 }
-                , {
-                    "id": 0,
-                    "text": "about you",
-                    "created": "Fri, 15 Jul 2017 09:56:37 GMT",
-                    "createdBy": 12
-                }
+               
             ]
         },
         {
