@@ -12,34 +12,19 @@
     <link href="css/style1.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
     <!--third part css-->
-    <!-- <link href="assets/tooltipster/tooltipster.min.css" rel="stylesheet"> -->
+
     <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/angular-material.min.css" rel="stylesheet">
     <link href="assets/font-awesome/font-awesome.min.css" rel="stylesheet">
-    <!-- <link href="assets/datepicker/bootstrap-datetimepicker.css" rel="stylesheet"> -->
-    <link href="assets/sweetalert/sweetalert.css" rel="stylesheet">
     <script src="assets/jquery/jquery-1.11.2.min.js"></script>
-    <!-- <script src="assets/tooltipster/jquery.tooltipster.js"></script> -->
-    <script src="assets/spinner/angular-loading-spinner.js"></script>
-    <script src="assets/spinner/angular-spinner.min.js"></script>
-    <script src="assets/spinner/spin.min.js"></script>
     <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="assets/underscore/underscore.min.js"></script>
     <script src="assets/underscore/angular-underscore-module.js"></script>
     <script src="assets/moment/moment.min.js"></script>
-    <!-- <script src="assets/highchart/highcharts.min.js"></script>
-  <script src="assets/highchart/highcharts-more.min.js"></script>
-  <script src="assets/highchart/solid-gauge.min.js"></script> -->
-    <script src="assets/round-progressbar/roundProgress.min.js"></script>
-    <!-- <script src='assets/datepicker/bootstrap-datetimepicker.js'></script> -->
-    <script src="assets/sweetalert/sweetalert-dev.js"></script>
-    <!--// <script src="lib/angular-gm/angularjs-google-maps.js"></script>-->
+
 
     <!-- core js -->
     <script src="js/ChatApp.js"></script>
@@ -60,35 +45,60 @@
 
 <body ng-controller="MainCtrl">
     <div class="row headerHeading">
-        <h3>Chatteing Box</h3>
+        <h3>AxisRooms Chating Assignment</h3>
     </div>
-    <div class="row">
+    <div class="row " id="container">
         <div class="col-lg-3 meneRightBorder">
-            <div class="menuBorder">serach box</div>
-            <div ng-repeat="user in userList">
-                <div class="meneRightBorder">
-                    <a href="/AxisRooms_Assignment/details" ng-click="changeUser(user.id)">
-                        <div class="menuBorder">
+            <div class="menuBorder">
+                <div class="row paddingZero" style="margin-top:15px">
+                    <div class="col-sm-8">
+                        <input type="text" ng-model="search" placeholder="Search" class="searchText fa fa-search">
+                    </div>
+                    <div class="col-sm-4">
+                        <button ng-click="changeOrder()" class="sortButton" style="width:50%">Sort</button>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="user in userList | filter: search | orderBy:sortType:sortReverse">
+                <div ng-class='{"selected":menuLink==user.id}'>
+                    <a ng-click="changeUser(user.id)">
+                        <div class="menuBorder" id="user.id">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <img class="imageHead" src="{{user.img}}" width="20px">
                                 </div>
                                 <div class="col-sm-10 menufont">
-                                    <label style="color: black;padding-left: 20px;font-size: 12px;">{{user.user}}</label>
+                                    <label style="color: black;padding-left: 20px;font-size: 12px;    padding-top: 12px;">{{user.user}}</label>
                                     <br>
-                                    <label style="color: grey;padding-left: 20px;font-size: 9px;">{{user.user}}</label>
+                                    <label style="color: grey;padding-left: 20px;font-size: 9px;padding-top:0px;" ng-repeat="item in user.messages" ng-if="$last">{{item.text}}</label>
                                 </div>
                             </div>
                         </div>
                     </a>
-                    <!-- </ion-item> -->
                 </div>
-
             </div>
         </div>
-        <div class="col-lg-9" style="padding:0px;">
-            <div ng-view></div>
+        <div class="col-lg-9 chatBackgroung" style=" overflow:scroll;">
+
+            <div class="msgBody">
+
+                <div ng-repeat="msg in messages">
+                    <div ng-class="{'showRight' : msg.createdBy == user_id, 
+                    'showLeft' : msg.createdBy != user_id}">
+                        {{msg.text}}
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div id="footer" ng-if="userClicked">
+                <form name="myForm">
+                    <input type="text" ng-model="textbox" autofocus class="footerText" required>
+                    <button class="send-icon footerButton" ng-disabled="myForm.$invalid" ng-click="sendText(textbox)">
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-
 </body>
+
+</html>

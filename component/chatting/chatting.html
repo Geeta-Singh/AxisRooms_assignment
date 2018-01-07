@@ -1,19 +1,44 @@
-hi geeta u getting called<p>{{id}}</p>
-<div class="container">
-    hi geeta
-    <div class="footer">
-        <div class="row">
-            <!-- <div class="col-sm-10">
+<div class="container row ">
+    <div class="col-lg-3 meneRightBorder">
+        <div class="menuBorder">serach box</div>
+        <div ng-repeat="user in userList">
+            <div class="meneRightBorder">
+                <a  ng-click="changeUser(user.id)">
+                    <div class="menuBorder">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img class="imageHead" src="{{user.img}}" width="20px">
+                            </div>
+                            <div class="col-sm-10 menufont">
+                                <label style="color: black;padding-left: 20px;font-size: 12px;">{{user.user}}</label>
+                                <br>
+                                <label style="color: grey;padding-left: 20px;font-size: 9px;">{{user.user}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- </ion-item> -->
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="msgBody">
+            <div>
 
             </div>
-            <div class="col-sm-2"> -->
-                <form ng-submit="send()" class="chat-input">
-                    <input type="text" ng-model="textbox" autofocus>
-                    <input type="submit" class="send-icon" value=" ">
-                    <input type="submit" value=" "
-                        class="sent-indicator {{ status }}">
-                </form>
-            <!-- </div> -->
+        </div>
+        <div class="footer">
+            <form ng-submit="send()" class="chat-input">
+                <div class="row footerStyle">
+                    <div class="col-sm-9 paddingZero">
+                        <input type="text" ng-model="textbox" autofocus>
+                    </div>
+                    <div class="col-sm-2 paddingZero">
+                        <input type="submit" class="send-icon" value=" ">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -13,11 +13,19 @@
 }
 
 .headerHeading{
-    background-color: white;
+    background-color: #ace2ead1;;
     color: darkblue;
        text-align: center;
+       margin-right: 0px; 
+       margin-left: 0px;
+   
     font-weight: bold;
     border-bottom: 1px solid;
+}
+body {
+    margin:0;     /* This is used to reset any browser-default margins */
+    height:100vh; /* This is needed to overcome a Chrome bug. */
+    width:100vw;  /* As above. */
 }
 
 .meneRightBorder{
@@ -26,7 +34,8 @@
     border-right: 1px solid #e7e7e7;
     /* padding-left: 0px !important; */
     padding-right: 0px !important;
-    height: 100%;
+    height:100vh;
+    padding-left: 0px !important;
 }
 .menufont{
     color: black;
@@ -37,3 +46,169 @@
     margin-top: 0px;
     padding-top: 0px;
 }
+
+.footerStyle{
+    height: 42px;
+    border: 1px solid #b3bbbb;
+    padding: 0px;
+}
+
+.paddingZero{
+    padding: 0px;
+}
+
+.send-icon{
+    background-image: url("../img/send-icon.png");
+    background-position: 10px 7px;
+    background-size: 52%;
+    background-repeat: no-repeat;
+    
+    border: 1px;
+    width: 40px;
+    /* text-align: center; */
+    height: 40px;
+    border-radius: 51%;
+    background-color: #3b909cd1;
+    /* align-items: center; */
+    /* align-content: center; */
+    /* padding: 15px; */
+    /* margin-top: -1px; */
+}
+
+.disableDiv{
+    pointer-events: none;
+    background-color: #99e3cf !important;
+    background-image: linear-gradient(180deg, #99e3cf , #99e3cf 50%, transparent 50%) !important;
+ }
+ 
+/* .footer{
+  /* //  margin-top: 20px; 
+  position:absolute; left:0; bottom:0;
+} */
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 75%;
+    
+}
+.searchText{
+    height: 31px;
+    border: 1px solid #56d0d0 !important;
+    border-radius: 2px;
+    width: 137% !important;
+    padding: 5px;
+}
+.sortButton{
+    background: #ace2ead1;
+    /* width: 50%; */
+    /* border-radius: 5px; */
+    /* border: 1px; */
+    float: right;
+    padding: 4px;
+    width: 50%;
+    border: 1px solid #6498dad9;
+    border-radius: 2px;
+}
+.selected div, .selected a{
+    background-color: #ace2ead1;
+}
+/* a:focus {
+    background-color:red;
+} */
+.footerText{
+    width:83% !important;
+    padding:5px !important;
+}
+.footerButton{
+    width:5% !important;
+    padding: 13px;
+}
+.chatBackgroung{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.msgBody{
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 20px;
+}
+#container{
+    width: 100%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+#footer {
+   /* // background: #0070FF; */
+    /* line-height: 2; */
+    text-align: center;
+    color: #042E64;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    background: rgb(207, 206, 206);
+    /* font-weight: bold; */
+    /* text-shadow: 0 1px 0 #84BAFF; */
+    /* box-shadow: 0 0 15px #00214B */
+}
+.showRight{
+    /* text-align: right; */
+    /* text-align: right; */
+    color: black;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 15px;
+    display: block;
+    background: #ace2ead1;
+    width: fit-content;
+    align-items: right;
+   /* // align="left; */
+    float: right;
+}
+a:visited{
+    background: blueviolet;
+}
+a:active{
+    background: blueviolet;
+}
+.showLeft{
+    /* float: left; */
+    /* text-align: left; */
+    color: #060606;
+    align-items: left;
+    padding-right: 10px;
+    border-radius: 5px;
+    display: block;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f5f7f3;
+    width: fit-content;
+    /* float: left; */
+}
+
+.chatBackgroung{
+    background-image: url('../img/chatback.jpg');
+    height: 100vh;
+}
+
+#ContainerDiv {
+    margin: auto;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  #InnerContainer {
+    width: 100%;
+  }
+  
+  #TheBelowDiv {
+    font-size: 18pt;
+    font-family: Tahoma;
+    text-align: center;
+    color: white;
+  } 

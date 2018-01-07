@@ -6,7 +6,7 @@ angular.module('chatconfig', ['ngRoute'])
   });
 
   $routeProvider
-  .when('/AxisRooms_Assignment/details', {
+  .when('/AxisRooms_Assignment/', {
       templateUrl: 'component/chatting/chatting.html',
       controller: 'ChattingCtrl',
       cache: false
