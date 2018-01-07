@@ -22,7 +22,7 @@ angular.module('chatinterceptor', [])
 
   //  console.log(config)
     if(config.data)
-      config.data.token = localStorage.getItem(Constants.accessToken);
+     // config.data.token = localStorage.getItem(Constants.accessToken);
       // console.log(config)
     	return config;
     }
