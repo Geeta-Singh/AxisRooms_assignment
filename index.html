@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="Chat">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Chatting Box</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style1.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <!--third part css-->
+    <!-- <link href="assets/tooltipster/tooltipster.min.css" rel="stylesheet"> -->
+    <link href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/angular-material.min.css" rel="stylesheet">
+    <link href="assets/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="assets/datepicker/bootstrap-datetimepicker.css" rel="stylesheet"> -->
+    <link href="assets/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="assets/jquery/jquery-1.11.2.min.js"></script>
+    <!-- <script src="assets/tooltipster/jquery.tooltipster.js"></script> -->
+    <script src="assets/spinner/angular-loading-spinner.js"></script>
+    <script src="assets/spinner/angular-spinner.min.js"></script>
+    <script src="assets/spinner/spin.min.js"></script>
+    <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="assets/underscore/underscore.min.js"></script>
+    <script src="assets/underscore/angular-underscore-module.js"></script>
+    <script src="assets/moment/moment.min.js"></script>
+    <!-- <script src="assets/highchart/highcharts.min.js"></script>
+  <script src="assets/highchart/highcharts-more.min.js"></script>
+  <script src="assets/highchart/solid-gauge.min.js"></script> -->
+    <script src="assets/round-progressbar/roundProgress.min.js"></script>
+    <!-- <script src='assets/datepicker/bootstrap-datetimepicker.js'></script> -->
+    <script src="assets/sweetalert/sweetalert-dev.js"></script>
+    <!--// <script src="lib/angular-gm/angularjs-google-maps.js"></script>-->
+
+    <!-- core js -->
+    <script src="js/ChatApp.js"></script>
+    <script src="js/ChatConst.js"></script>
+    <script src="js/ChatConfig.js"></script>
+    <script src="js/ChatServices.js"></script>
+    <script src="js/ChatInterceptor.js"></script>
+    <script src="js/ChatController.js"></script>
+    <script src="js/ChatFilter.js"></script>
+    <script src="js/ChatFactories.js"></script>
+    <script src="js/ChatDirective.js"></script>
+    <script src="js/Factories/UtilsFactories.js"></script>
+    <script src="js/ChatDirective.js"></script>
+
+    <!-- component js -->
+    <script src="component/chatting/chatting.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="row headerHeading">
+        <h3>Chatteing Box</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 meneRightBorder">
+            <div class="menuBorder">serach box</div>
+            <div ng-repeat="user in userList">
+                <div class="meneRightBorder">
+                    <a href="/AxisRooms_Assignment/details" ng-click="changeUser(user.id)">
+                        <div class="menuBorder">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="imageHead" src="{{user.img}}" width="20px">
+                                </div>
+                                <div class="col-sm-10 menufont">
+                                    <label style="color: black;padding-left: 20px;font-size: 12px;">{{user.user}}</label>
+                                    <br>
+                                    <label style="color: grey;padding-left: 20px;font-size: 9px;">{{user.user}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- </ion-item> -->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-9" style="padding:0px;">
+            <div ng-view></div>
+        </div>
+    </div>
+
+</body>

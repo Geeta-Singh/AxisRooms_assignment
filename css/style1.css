@@ -1,0 +1,39 @@
+.imageHead{
+    width: 44px;
+    height: 45px;
+    /* border: 1px solid; */
+    border-radius: 50%;
+}
+
+.menuBorder{
+    border-bottom: 1px solid;
+    height: 57px;
+    padding: 3px 11px 7px 11px;
+    border-bottom-color: #d8d8d8;
+}
+
+.headerHeading{
+    background-color: white;
+    color: darkblue;
+       text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid;
+}
+
+.meneRightBorder{
+    background: white;
+    border-right: black;
+    border-right: 1px solid #e7e7e7;
+    /* padding-left: 0px !important; */
+    padding-right: 0px !important;
+    height: 100%;
+}
+.menufont{
+    color: black;
+    padding-left: 20px;
+    font-size: 12px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
