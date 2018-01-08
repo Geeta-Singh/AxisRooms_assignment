@@ -30,7 +30,7 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
                     "created": "Fri, 15 Jul 2017 09:56:37 GMT",
                     "createdBy": 12
                 }
-               
+
             ]
         },
         {
@@ -116,7 +116,7 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
         $scope.menuLink = userid;
 
         if (UtilsFactory.getGetData().length == 0) {
-            $scope.userList = UtilsFactory.getGetData(); 
+            $scope.userList = UtilsFactory.getGetData();
         }
 
         $scope.foundObject = _.findWhere($scope.userList, { id: userid });
@@ -134,8 +134,8 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
         var temp = {};
         temp.id = '1';
         temp.text = msg,
-        temp.created = 'Fri, 15 Jul 2017 09:56:37 GMT',
-        temp.createdBy = $rootScope.user_id
+            temp.created = 'Fri, 15 Jul 2017 09:56:37 GMT',
+            temp.createdBy = $rootScope.user_id
 
         // console.log(temp);
         // console.log(msg, $rootScope.user_id);
@@ -146,8 +146,19 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
         // console.log(" update json \n" + JSON.stringify($scope.foundObject.messages));
 
     }
+    $scope.cunt = 0;
+    $scope.changeOrder = function (id) {
 
-    $scope.changeOrder = function () {
-        $scope.sortType = 'user';
+       // console.log("hi" + $scope.cunt);
+        if ($scope.cunt == 0) {
+            $scope.sortType = 'user';
+            $scope.cunt = 1;
+        }
+        else if ($scope.cunt != 0){
+            $scope.sortType = 'id';
+            $scope.cunt = 0;
+        }
+       
+       // console.log("calling change");
     }
 })
