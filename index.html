@@ -44,12 +44,12 @@
     <script src="component/chatting/chatting.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" style="overflow: hidden;">
     <div class="row headerHeading">
         <h3>AxisRooms Chating Assignment</h3>
     </div>
     <div class="row " id="container">
-        <div class="col-lg-3 meneRightBorder">
+        <div class="col col-sm-3 col-md-3 col-lg-3 meneRightBorder">
             <div class="menuBorder">
                 <div class="row paddingZero" style="margin-top:15px">
                     <div class="col-sm-8">
@@ -80,17 +80,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-9 chatBackgroung" style=" overflow:auto;">
+        <div class="col col-sm-9 col-md-9 col-lg-9 chatBackgroung">
+            <div class="msgContainer">
+                <div class="msgBody" schroll-bottom="messages" style=" overflow:auto;">
 
-            <div class="msgBody">
-                <div id="chatBox " schroll-bottom="messages">
                     <div ng-repeat="msg in messages">
                         <div class="row" style="padding-left:15px;padding-right:15px">
-                            <div ng-class="{'showRight' : msg.createdBy == user_id, 
-                                  'showLeft' : msg.createdBy != user_id}">
+                            <li ng-class="{'showRight' : msg.createdBy == user_id, 
+                        'showLeft' : msg.createdBy != user_id}">
                                 {{msg.text}}
-                            </div>
-                            <br>
+                            </li>
                         </div>
                     </div>
                 </div>

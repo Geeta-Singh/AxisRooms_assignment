@@ -118,47 +118,48 @@ angular.module('chatcontrollers', ['chatting']).controller('MainCtrl', function 
         if (UtilsFactory.getGetData().length == 0) {
             $scope.userList = UtilsFactory.getGetData();
         }
-
         $scope.foundObject = _.findWhere($scope.userList, { id: userid });
-        // console.log(" selected obj \n" + JSON.stringify($scope.foundObject), $scope.foundObject.messages);
         $scope.messages = $scope.foundObject.messages;
-
-        // console.log(userid);
         $rootScope.user_id = userid;
-        // console.log($rootScope.user_id);
 
     };
-
+    var scroll_limit = 0;
     $scope.sendText = function (msg) {
         $scope.textbox = null;
         var temp = {};
         temp.id = '1';
         temp.text = msg,
-            temp.created = 'Fri, 15 Jul 2017 09:56:37 GMT',
-            temp.createdBy = $rootScope.user_id
+        temp.created = 'Fri, 15 Jul 2017 09:56:37 GMT',
+        temp.createdBy = $rootScope.user_id
 
-        // console.log(temp);
-        // console.log(msg, $rootScope.user_id);
         $scope.foundObject = _.findWhere($scope.userList, { id: $rootScope.user_id });
-        // console.log(" selected obj \n" + JSON.stringify($scope.foundObject), $scope.foundObject.messages);
         $scope.messages = $scope.foundObject.messages;
         $scope.foundObject.messages.push(temp);
-        // console.log(" update json \n" + JSON.stringify($scope.foundObject.messages));
+
+        scroll_limit = scroll_limit + 10;
+        var scrollTop = $('.msgBody')[0].scrollTop,
+            scrollHeight = $('.msgBody')[0].scrollHeight,
+            offsetHeight = $('.msgBody')[0].offsetHeight;
+        if (scrollTop === (scrollHeight - offsetHeight)) {
+            var chat = $('.msgContainer');
+            chat.scrollTop(chat.prop('scrollHeight') - chat.height());
+        }
+
 
     }
     $scope.cunt = 0;
     $scope.changeOrder = function (id) {
 
-       // console.log("hi" + $scope.cunt);
+        // console.log("hi" + $scope.cunt);
         if ($scope.cunt == 0) {
             $scope.sortType = 'user';
             $scope.cunt = 1;
         }
-        else if ($scope.cunt != 0){
+        else if ($scope.cunt != 0) {
             $scope.sortType = 'id';
             $scope.cunt = 0;
         }
-       
-       // console.log("calling change");
+
+        // console.log("calling change");
     }
 })
