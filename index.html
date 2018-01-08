@@ -82,12 +82,14 @@
 
             <div class="msgBody">
 
-                <div ng-repeat="msg in messages">
-                    <div ng-class="{'showRight' : msg.createdBy == user_id, 
+                <div ng-repeat="msg in messages" >
+                    <div class="row" style="padding-left:15px;padding-right:15px">
+                        <div ng-class="{'showRight' : msg.createdBy == user_id, 
                     'showLeft' : msg.createdBy != user_id}">
-                        {{msg.text}}
+                            {{msg.text}}
+                        </div>
+                        <br>
                     </div>
-                    <br>
                 </div>
             </div>
             <div id="footer" ng-if="userClicked">
